@@ -3,7 +3,6 @@
 
 ## How to use
 
-### Use a prebuilt container
 1. Clone the repo.
 2. Put your AWS VPN client profile into the directory as "vpn.conf"
 3. Build the dockerfile: ```docker build . -t vpn:latest ``` 
