@@ -15,7 +15,7 @@
 > 
 > ## Credits
 > ### [rdvencioneck/aws-vpn-client-docker](https://github.com/rdvencioneck/aws-vpn-client-docker)
-> He created a dockerfile for Alex's solution. I just added a couple of extra features on top of that.
+> He created a dockerfile for Alex's solution.
 > ### [samm-git/aws-vpn-client](https://github.com/samm-git/aws-vpn-client)
 > 
 > Alex Samorukov is the mastermind behind this implementation. He figured out how AWS patches the openvpn client and
