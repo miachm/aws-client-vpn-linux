@@ -1,0 +1,31 @@
+#!/bin/bash
+
+CONTAINER_NAME="vpn"
+
+docker run --name vpn -d --net host --device /dev/net/tun:/dev/net/tun --cap-add NET_ADMIN vpn:latest
+sleep 3
+
+# Get the logs from the container and find the last URL occurrence
+URL=$(docker logs "$CONTAINER_NAME" 2>&1 | \
+      grep -oP 'Open the url in browser: \Khttp[s]?://\S+' | \
+      tail -n 1)
+
+# Verify if we got a URL
+if [ -n "$URL" ]; then
+    echo "Found URL: $URL"
+    echo "Opening in default browser..."
+    
+    # Open URL in default browser based on OS
+    if which xdg-open >/dev/null 2>&1; then
+        xdg-open "$URL"           # Linux
+    elif which open >/dev/null 2>&1; then
+        open "$URL"               # macOS
+    else
+        echo "Error: No compatible browser opener found (try xdg-open/open)"
+        exit 1
+    fi
+else
+    echo "No URL found in logs matching 'Open the url in browser:'"
+    exit 1
+fi
+
