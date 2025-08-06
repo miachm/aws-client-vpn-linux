@@ -4,10 +4,11 @@
 ## How to use
 
 ### Use a prebuilt container
-1. Download your AWS VPN client profile into a directory and rename it as "vpn.conf"
-2. Build the dockerfile: docker build . -t vpn:latest
-3. MV the "launchVPN" into your path (ex: /bin/launchVPN)
-4. Everytime you want to execute. Type in the command line: "launchVPN"
+1. Clone the repo.
+2. Put your AWS VPN client profile into the directory as "vpn.conf"
+3. Build the dockerfile: ```docker build . -t vpn:latest ``` 
+4. Move the "launchVPN" script into your path (for example: /bin/launchVPN)
+5. Everytime you want to execute. Type in the command line: ```launchVPN```
  
 ## Credits
 This repository is largely simply packaging other authors' work!
